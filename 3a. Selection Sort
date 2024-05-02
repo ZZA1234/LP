@@ -2,7 +2,7 @@
 def selection_sort(arr):
     n = len(arr)
     # Traverse through all array elements
-    for i in range(n):
+    for i in range(n-1):
         # Find the minimum element in remaining unsorted array
         min_index = i
         for j in range(i+1, n):
