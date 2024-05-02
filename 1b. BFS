@@ -7,23 +7,22 @@ graph = {'A':['B', 'E', 'C'],
          'F':['C'],
          'G':['C']
          }
+
 visited = []
 queue = []
 
-def bfs(visited, graph, start_node, goal_node):
-    visited.append(start_node)
-    queue.append(start_node)
-    while queue:
-        m = queue.pop(0)
-        print(m)
-        if m == goal_node:
-            print("Node is Found !!! ")
-            break
-        else:
-            for n in graph[m]:
-                if n not in visited:
-                    visited.append(n)
-                    queue.append(n)
-
-print("The BFS Traversal is : ")
-bfs(visited, graph, 'A', 'D')
+print("BFS traveral is: ")
+def bfs(graph, start):
+    print(start)
+    if start not in visited:
+        visited.append(start)
+    for neighbour in graph[start]:
+        if neighbour not in visited:
+            queue.append(neighbour)
+            visited.append(neighbour)
+            
+    if queue:
+        vertex = queue.pop(0)
+        bfs(graph,vertex)
+            
+bfs(graph,'A')
